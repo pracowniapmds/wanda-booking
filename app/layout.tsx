@@ -31,8 +31,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="pl">
-      <body>
+  <html lang="pl">
+    <body className={`${inter.variable} ${montserrat.variable}`}>
         
         {/* Google Analytics 4 + Google Ads */}
         <Script
