@@ -1,8 +1,7 @@
-import Script from "next/script";
+import Script from "next/script"
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Montserrat } from "next/font/google"
-import Script from "next/script"
 import "./globals.css"
 
 const inter = Inter({
@@ -30,16 +29,13 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="pl">
       <body className={`${inter.variable} ${montserrat.variable}`}>
         {/* Google Analytics 4 + Google Ads */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-1DM1EEPP83"
-          strategy="afterInteractive"
-        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-1DM1EEPP83" strategy="afterInteractive" />
         <Script id="ga-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -57,5 +53,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  );
+  )
 }
