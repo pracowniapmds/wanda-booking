@@ -1,3 +1,6 @@
+import Script from "next/script";
+
+
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Montserrat } from "next/font/google"
@@ -27,12 +30,34 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="pl" className={`${inter.variable} ${montserrat.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+    <html lang="pl">
+      <body>
+        
+        {/* Google Analytics 4 + Google Ads */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-1DM1EEPP83"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-ads" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            // GA4
+            gtag('config', 'G-1DM1EEPP83');
+
+            // Google Ads remarketing / konwersje
+            gtag('config', 'AW-17783263323');
+          `}
+        </Script>
+
+        {children}
+      </body>
     </html>
-  )
+  );
 }
