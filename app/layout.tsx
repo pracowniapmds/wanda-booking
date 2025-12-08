@@ -1,3 +1,4 @@
+import Script from "next/script";
 import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Montserrat } from "next/font/google"
