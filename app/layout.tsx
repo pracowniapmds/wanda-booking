@@ -22,6 +22,7 @@ export const metadata: Metadata = {
     "Wanda i Banda to legendarny polski zespół rockowy. Zarezerwuj koncert na żywo - eventy firmowe, wesela, koncerty plenerowe. Ponadczasowe hity: Hi-Fi, Kochaj mnie kochaj i wiele innych.",
   keywords:
     "Wanda i Banda, zespół rockowy, zespół na imprezę, muzyka na żywo, koncert plenerowy, polski rock, legenda polskiego rocka, Hi-Fi, Kochaj mnie kochaj",
+    generator: 'v0.app'
 };
 
 export default function RootLayout({
