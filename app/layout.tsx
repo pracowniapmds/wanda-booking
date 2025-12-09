@@ -17,12 +17,12 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Wanda i Banda - Legenda Polskiego Rocka | Zespół na Imprezę",
+  title: "Wanda i Banda – Legenda Polskiego Rocka | Zespół na Imprezę",
   description:
-    "Wanda i Banda to legendarny polski zespół rockowy. Zarezerwuj koncert na żywo - eventy firmowe, wesela, koncerty plenerowe. Ponadczasowe hity: Hi-Fi, Kochaj mnie kochaj i wiele innych.",
+    "Wanda i Banda to legendarny polski zespół rockowy. Zarezerwuj koncert na żywo — eventy firmowe, wesela, koncerty plenerowe. Energetyczny rock i ponadczasowe hity.",
   keywords:
-    "Wanda i Banda, zespół rockowy, zespół na imprezę, muzyka na żywo, koncert plenerowy, polski rock, legenda polskiego rocka, Hi-Fi, Kochaj mnie kochaj",
-    generator: 'v0.app'
+    "Wanda i Banda, zespół rockowy, zespół na imprezę, koncert plenerowy, muzyka na żywo, polski rock, Hi-Fi, Kochaj mnie kochaj",
+  generator: "v0.app"
 };
 
 export default function RootLayout({
@@ -33,21 +33,19 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body className={`${inter.variable} ${montserrat.variable}`}>
-        {/* Google Analytics 4 + Google Ads */}
+
+        {/* Google Analytics 4 */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-1DM1EEPP83"
           strategy="afterInteractive"
         />
-        <Script id="ga-ads" strategy="afterInteractive">
+
+        <Script id="ga-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
-            // GA4
             gtag('config', 'G-1DM1EEPP83');
-
-            // Google Ads remarketing / konwersje
             gtag('config', 'AW-17783263323');
           `}
         </Script>
