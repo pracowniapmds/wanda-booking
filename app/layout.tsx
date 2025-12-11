@@ -1,43 +1,52 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter, Montserrat } from "next/font/google"
-import Script from "next/script"
-import "./globals.css"
+import './globals.css';
+import type { Metadata } from 'next';
+import Script from 'next/script';
+import { Inter, Montserrat } from 'next/font/google';
+import React from 'react';
 
 const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
-  display: "swap",
-})
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-inter',
+});
 
 const montserrat = Montserrat({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-montserrat",
-  weight: ["400", "500", "600", "700", "800", "900"],
-  display: "swap",
-})
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-montserrat',
+});
 
 export const metadata: Metadata = {
-  title: "Wanda i Banda - Legenda Polskiego Rocka | Zespół na Imprezę",
-  description:
-    "Wanda i Banda to legendarny polski zespół rockowy. Zarezerwuj koncert na żywo - eventy firmowe, wesela, koncerty plenerowe. Ponadczasowe hity: Hi-Fi, Kochaj mnie kochaj i wiele innych.",
-  keywords:
-    "Wanda i Banda, zespół rockowy, zespół na imprezę, muzyka na żywo, koncert plenerowy, polski rock, legenda polskiego rocka, Hi-Fi, Kochaj mnie kochaj",
-    generator: 'v0.app'
-}
+  title: 'Wanda i Banda – Booking',
+  description: 'Rezerwacja terminów koncertów Wanda i Banda',
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  const isProduction = process.env.NODE_ENV === "production"
+}: {
+  children: React.ReactNode;
+}) {
+  const isProduction = process.env.NODE_ENV === 'production';
 
   return (
     <html lang="pl">
       <head>
         {isProduction && (
-          <Script src="https://www.googletagmanager.com/gtag/js?id=G-1DM1EEPP83" strategy="afterInteractive" />
+          <>
+            {/* Cookiebot */}
+            <Script
+              id="cookiebot"
+              src="https://consent.cookiebot.com/uc.js"
+              data-cbid="78e2b339-92ff-4140-b0d7-b57fa38dc396"
+              type="text/javascript"
+              strategy="beforeInteractive"
+            />
+
+            {/* Loader gtag.js - GA4 (G-1DM1EEPP83) - wspólny z wandaibanda.pl */}
+            <Script
+              id="ga-gtag-loader"
+              src="https://www.googletagmanager.com/gtag/js?id=G-1DM1EEPP83"
+              strategy="afterInteractive"
+            />
+          </>
         )}
       </head>
       <body className={`${inter.variable} ${montserrat.variable}`}>
@@ -47,12 +56,16 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-            gtag('config', 'G-1DM1EEPP83', {
-  linker: {
-    domains: ['wandaibanda.pl', 'booking.wandaibanda.pl']
-  }
-});
 
+              // GA4 - wspólny tag + cross-domain
+              gtag('config', 'G-1DM1EEPP83', {
+                linker: {
+                  domains: ['wandaibanda.pl', 'booking.wandaibanda.pl']
+                }
+              });
+
+              // Google Ads - remarketing / konwersje
+              gtag('config', 'AW-17783263323');
             `}
           </Script>
         )}
@@ -60,5 +73,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  )
+  );
 }
