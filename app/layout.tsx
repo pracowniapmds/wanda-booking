@@ -47,8 +47,12 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-1DM1EEPP83');
-              gtag('config', 'AW-17783263323');
+            gtag('config', 'G-1DM1EEPP83', {
+  linker: {
+    domains: ['wandaibanda.pl', 'booking.wandaibanda.pl']
+  }
+});
+
             `}
           </Script>
         )}
