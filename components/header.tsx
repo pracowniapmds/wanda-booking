@@ -15,6 +15,7 @@ export function Header() {
     { name: "Oferta", href: "#offer-section" },
     { name: "Na żywo", href: "#video-section" },
     { name: "Recenzje", href: "#press-section" },
+    { name: "Wanda i Banda", href: "https://wandaibanda.pl", external: true },
   ]
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -46,7 +47,9 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={(e) => handleScroll(e, item.href)}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noreferrer" : undefined}
+                onClick={item.external ? undefined : (e) => handleScroll(e, item.href)}
                 className="text-white/90 hover:text-white px-4 py-2 rounded-full font-medium transition-colors drop-shadow"
               >
                 {item.name}
@@ -80,7 +83,9 @@ export function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    onClick={(e) => handleScroll(e, item.href)}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noreferrer" : undefined}
+                    onClick={item.external ? undefined : (e) => handleScroll(e, item.href)}
                     className="text-[#888888] hover:text-foreground justify-start text-lg py-2"
                   >
                     {item.name}
