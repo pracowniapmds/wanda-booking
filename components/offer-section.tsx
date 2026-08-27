@@ -72,9 +72,14 @@ export function OfferSection() {
             size="lg"
             className="bg-white text-[#60A5FA] hover:bg-gray-100 px-8 py-6 text-lg font-bold rounded-full shadow-xl"
             onClick={() => {
-              const contactSection = document.getElementById("contact-section")
-              if (contactSection) {
-                contactSection.scrollIntoView({ behavior: "smooth" })
+              try {
+                const contactSection = document.getElementById("contact-section")
+                if (contactSection) {
+                  const elementPosition = contactSection.getBoundingClientRect().top + window.pageYOffset
+                  window.scrollTo({ top: elementPosition, behavior: "smooth" })
+                }
+              } catch (e) {
+                // Ignore cross-origin errors in preview environment
               }
             }}
           >
