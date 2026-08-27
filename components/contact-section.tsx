@@ -3,6 +3,7 @@
 import { Phone } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { ContactForm } from "./contact-form"
+import { PhoneReveal } from "./phone-reveal"
 
 export function ContactSection() {
   return (
@@ -26,7 +27,7 @@ export function ContactSection() {
             </div>
             <h3 className="text-xl font-bold mb-2">Telefon</h3>
             <p className="text-gray-300 font-semibold mb-1">Taissa Matuszczyk</p>
-            <p className="text-gray-300">607 461 143</p>
+            <PhoneReveal phone="607 461 143" />
           </div>
 
           <div className="md:col-span-2">

@@ -1,6 +1,7 @@
 "use client"
 
 import { Facebook, Instagram, Youtube } from 'lucide-react'
+import { PhoneReveal } from "./phone-reveal"
 
 export function FooterSection() {
   return (
@@ -63,7 +64,7 @@ export function FooterSection() {
             <h4 className="text-lg font-bold text-gray-300">Kontakt</h4>
             <div className="flex flex-col gap-2 text-gray-400">
               <p className="font-semibold text-white">Taissa Matuszczyk</p>
-              <p>607 461 143</p>
+              <PhoneReveal phone="607 461 143" />
             </div>
           </div>
         </div>
